@@ -5,35 +5,57 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="content">
-      <h1>Sheryl's Portfolio</h1>
-      <h2> Introduction </h2>
-      <p>Hello there! Welcome to my portfolio page.  Here is a short introduction about myself.  I am Sheryl and I am currently studying in Nanyang Technological University, majoring in Computer Engineering.
-         Recently, i picked up digital drawing as well as film photography.  I enjoy spending time outdoors and also trying out new food and cafe in town.  
-      </p>
-      <p>Click here to see one of my favourite quotes:</p>
-      <button onclick="addRandomQuote()">Here</button>
-      <div id="quote-container"></div>
-
-
-      <h2> Film photography </h2>
-      <img src ="images/IMG_1936.JPG"/>
-      <img src ="images/IMG_1940.JPG"/>
-      <img src ="images/IMG_1943.jpg"/>
-      <img src ="images/IMG_1944.jpg"/>
-      <img src ="images/IMG_1945.jpg"/>
-      <img src ="images/IMG_8793.JPG"/>
-      <img src ="images/IMG_8796.JPG"/>
-      <img src ="images/IMG_8797.JPG"/>
-      <img src ="images/IMG_8808.JPG"/>
-
-      <h2> Digital drawing </h2>
-      <img src ="images/friend.PNG"/>
-      <img src ="images/sister.PNG"/>
-
+    
+        <button class="tablink" onclick="openPage('about', this, 'red')" id="defaultOpen">About Me</button>
+        <button class="tablink" onclick="openPage('projects', this, 'green')">Projects</button>
+        <button class="tablink" onclick="openPage('hobbies', this, 'blue')">Hobbies</button>
+        <button class="tablink" onclick="openPage('contact', this, 'orange')">Contact Me</button>
       
-    </div>
+        <div id="about" class="tabcontent">
+            <h1> About Me </h1>
+            <img src ="images/IMG_1441.jpg" class = "center">
+            <p>Hello there! Welcome to my portfolio page. </p> 
+            <p>I am Sheryl and I am currently studying in Nanyang Technological University, majoring in Computer Engineering.
+            I am planning to take an elective focus in Data Analytics and Cyber Security.</p>
+            <p>Studies aside, I enjoy spending time outdoors and also trying out new food and cafe in town.  Recently, i picked up film photography as well as digital drawing.  Feel free to click on the "Hobbies" tab to take a look at some of my photos and work!    
+            </p>
+            <p>Click here to see one of my favourite quotes:
+            <button onclick="addRandomQuote()">Here</button>
+            <div id="quote-container"></div>
+            </p>
+        </div>
+        <div id="projects" class="tabcontent">
+            <h1> Projects </h1>   
+            <h2><a href = "https://github.com/sherylryl/OODP_Assignment.git" >  Hotel Reservation Project </a> </h2> 
+            <p> This is a group project done by my group for our assignment during out Object Oriented Design and Programming module.
+                The assignment required us to code a Hotel Reservation Application for hotel's front desk to manage the guest reservations, check in and out, room service orders as well as room statuses.
+            </p>
+
+        </div>
+        <div id="hobbies" class="tabcontent">
+            <h1> Hobbies </h1>
+            <h2> Film photography </h2>
+            <img src ="images/IMG_1936.JPG"/>
+            <img src ="images/IMG_1940.JPG"/>
+            <img src ="images/IMG_1943.jpg"/>
+            <img src ="images/IMG_1944.jpg"/>
+            <img src ="images/IMG_1945.jpg"/>
+            <img src ="images/IMG_8793.JPG"/>
+            <img src ="images/IMG_8796.JPG"/>
+            <img src ="images/IMG_8797.JPG"/>
+            <img src ="images/IMG_8808.JPG"/>
+
+            <h2> Digital drawing </h2>
+            <img src ="images/friend.PNG"/>
+            <img src ="images/sister.PNG"/>
+        </div>
+        <div id="contact" class="tabcontent">
+            <h1> Contact Me </h1>
+            <p> Email: iamsherylng@gmail.com </p>
+            <p> LinkedIn : <a href = "http://www.linkedin.com/in/sheryl-ng-wenwei"> Connect with me </a> </p>
+        </div>
   </body>
 </html>
