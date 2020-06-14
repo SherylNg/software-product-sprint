@@ -17,11 +17,15 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/comments")
@@ -38,6 +42,13 @@ public final class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
       String comment = receiveComments(request, "text-input", "");
       comments.add(comment);
+
+      Entity commentEntity = new Entity("Comments");
+      commentEntity.setProperty("Comment", comment);
+
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(commentEntity);
+      
       response.sendRedirect("/index.html");
   }
   private String receiveComments(HttpServletRequest request, String name, String defaultValue) {
