@@ -14,31 +14,37 @@
 
 package com.google.sps.servlets;
 import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
+
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/information")
-public class DataServlet extends HttpServlet {
-
+@WebServlet("/comments")
+public final class DataServlet extends HttpServlet { 
+  private List<String> comments = new ArrayList<>();
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> info = new ArrayList<>();
-    info.add("Hello");
-    info.add("Welcome to this page");
-    info.add("How are you feeling today?");
-
-    Gson gson = new Gson();
-    String json = gson.toJson(info);
-    System.out.println(json);
-
     response.setContentType("application/json;");
+    Gson gson = new Gson();
+    String json = gson.toJson(comments);
     response.getWriter().println(json);
-
+  }
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      String comment = receiveComments(request, "text-input", "");
+      comments.add(comment);
+      response.sendRedirect("/index.html");
+  }
+  private String receiveComments(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }

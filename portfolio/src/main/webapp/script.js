@@ -30,11 +30,10 @@ function addRandomQuote() {
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
-function getInfo() {
-  const response = await fetch('/information');
+function getComments() {
+  const response = await fetch('/comments');
   const json = await response.text();
-  document.getElementById('data').innertype = text;
-  console.log(typeof json);
+  document.getElementById('comments').innerText = json;
 }
 
 window.onload = function () {
