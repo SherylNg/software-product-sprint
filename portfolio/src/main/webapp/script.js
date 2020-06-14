@@ -30,26 +30,31 @@ function addRandomQuote() {
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
+async function getIntro() {
+  const response = await fetch('/data');
+  const quotes = await response.text();
+  document.getElementById('data').innerHTML = text;
+}
 
 window.onload = function () {
     startTab();
-     }
+}
 
 function startTab() {
     document.getElementById("defaultOpen").click();
-    }
+}
     
 function openPage(pageName, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
-  var tabcontent = document.getElementsByClassName("tabcontent");
-  for (var i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+  var tabContent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
   }
 
   // Remove the background color of all tablinks/buttons
-  var tablinks = document.getElementsByClassName("tablink");
-  for (var i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
+  var tabLinks = document.getElementsByClassName("tablink");
+  for (var i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].style.backgroundColor = "";
   }
 
   // Show the specific tab content
@@ -58,6 +63,3 @@ function openPage(pageName, elmnt, color) {
   // Add the specific color to the button used to open the tab content
   elmnt.style.backgroundColor = color;
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
