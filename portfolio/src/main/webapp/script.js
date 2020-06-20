@@ -12,6 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+window.onload = function () {
+    startTab();
+}
+
+function startTab() {
+    document.getElementById("defaultOpen").click();
+}
 /**
  * Adds a random greeting to the page.
  */
@@ -30,36 +37,23 @@ function addRandomQuote() {
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
-function getComments() {
-  const response = await fetch('/comments');
-  const json = await response.text();
-  document.getElementById('comments').innerText = json;
-}
 
-window.onload = function () {
-    startTab();
-}
-
-function startTab() {
-    document.getElementById("defaultOpen").click();
-}
-    
-function openPage(pageName, elmnt, color) {
-  // Hide all elements with class="tabcontent" by default */
-  var tabContent = document.getElementsByClassName("tabcontent");
-  for (var i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = "none";
+function openTab(evt, tabName) {
+  // Get all elements with class="tabcontent" and hide them
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
 
-  // Remove the background color of all tablinks/buttons
-  var tabLinks = document.getElementsByClassName("tablink");
-  for (var i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].style.backgroundColor = "";
+  // Get all elements with class="tablinks" and remove the class "active"
+  var tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
 
-  // Show the specific tab content
-  document.getElementById(pageName).style.display = "block";
-
-  // Add the specific color to the button used to open the tab content
-  elmnt.style.backgroundColor = color;
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
+
+
