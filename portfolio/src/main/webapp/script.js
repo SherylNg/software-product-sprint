@@ -11,14 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-window.onload = function () {
-    startTab();
-}
-
-function startTab() {
-    document.getElementById("defaultOpen").click();
-}
 /**
  * Adds a random greeting to the page.
  */
@@ -55,5 +47,12 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+function createMap() {
+  const map = new google.maps.Map(
+      document.getElementById('map'),
+      {center: {lat: 1.290270, lng: -103.851959}, zoom:2});
+}
+
 
 
