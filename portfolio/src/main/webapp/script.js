@@ -133,24 +133,28 @@ function createMap() {
             }
         ]
     })
-    const ntu = new google.maps.Marker({
+    const ntuMarker = new google.maps.Marker({
         position: {lat: 1.3483, lng: 103.6831},
         map: map,
         title: 'University'
-    })
-    const rv = new google.maps.Marker({
+    });
+    const ntuInfoWindow =
+        new google.maps.InfoWindow({content: 'Nanyang Technological University'});
+        ntuInfoWindow.open(map, ntuMarker);
+    const rvMarker = new google.maps.Marker({
         position: {lat: 1.3432, lng: 103.7097},
         map: map,
         title: 'High School'
-    })
-    const rgps = new google.maps.Marker({
+    });
+    const rvInfoWindow =
+        new google.maps.InfoWindow({content: 'River Valley High School'});
+        rvInfoWindow.open(map, rvMarker);
+    const rgpsMarker = new google.maps.Marker({
         position: {lat: 1.3300, lng: 103.8062},
         map: map,
         title: 'Primary School'
-    })
+    });
+    const rgpsInfoWindow =
+        new google.maps.InfoWindow({content: 'Raffles Girls Primary School'});
+        rgpsInfoWindow.open(map, rgpsMarker);
 }
-
-
-
-
-
