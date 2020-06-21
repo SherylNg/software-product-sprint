@@ -70,3 +70,11 @@ body, html {
   padding: 6px 12px;
   border-top: none;
 }
+#map {
+  border: thin solid black;
+  height: 300px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}

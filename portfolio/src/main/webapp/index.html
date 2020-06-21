@@ -4,18 +4,19 @@
         <meta charset="UTF-8">
         <title>My Portfolio</title>
         <link rel="stylesheet" href="style.css">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA52wRoMq0vilD3HifIfm0oQX7ZkjjW8kQ"></script>
         <script src="script.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body onload="createMap();">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Aboutme')" id="defaultOpen">About Me</button>
+            <button class="tablinks" onclick="openTab(event, 'Aboutme')">About Me</button>
             <button class="tablinks" onclick="openTab(event, 'Projects')">Projects</button>
             <button class="tablinks" onclick="openTab(event, 'Hobbies')">Hobbies</button>
             <button class="tablinks" onclick="openTab(event, 'Contactme')">Contact Me</button>
         </div>
 
-        <div id="Aboutme" class="tabcontent">
+        <div id="Aboutme" class="tabcontent" style="display:block" >
             <h1> About Me </h1>
             <img src ="images/IMG_1441.jpg" class = "center">
             <p>Hello there! Welcome to my portfolio page. </p> 
@@ -26,6 +27,10 @@
             <button onclick="addRandomQuote()">Here</button>
             <div id="quote-container"></div>
             </p>
+            </br></br>
+            <h2>Education</h2>
+            <div id="map"></div>
+            
         </div>
 
         <div id="Projects" class="tabcontent">

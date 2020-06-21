@@ -32,9 +32,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 
-
-
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/comments")
 public final class DataServlet extends HttpServlet { 
   @Override
@@ -55,6 +52,7 @@ public final class DataServlet extends HttpServlet {
     String json = gson.toJson(comments);
     response.getWriter().println(json);
   }
+
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
       String comment = receiveComments(request, "text-input", "");
@@ -62,7 +60,6 @@ public final class DataServlet extends HttpServlet {
       
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");  
 
-      
       Entity commentEntity = new Entity("Comment");
       commentEntity.setProperty("Comment", comment);
       commentEntity.setProperty("Timestamp", sdf.format(timestamp));
